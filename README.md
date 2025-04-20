@@ -11,6 +11,8 @@ So follow, this image to understand the script
 ![Alt text](/images/example.drawio.png?raw=true "Optional Title")
 
 ## What's next ?
-Well, there are a lot of things to do next. One of them is to develop an IPAM system,to control pod ip assignment during the execution of cluster-cni-custom.sh. 
+Well, there are a lot of things to do next. One of them is a basic IPAM system, to control pod ip assignment during the execution of cluster-cni-custom.sh. 
+
+Handling ``iptables`` rules created on different chains due to services or ingress resource creation
 
 Additionally, consider how to assign network routes to different pods that use other kubernetes namespaces rather than the default namespace.
