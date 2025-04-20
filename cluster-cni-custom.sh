@@ -19,7 +19,7 @@ ADD)
     IFS='.' read -r -a subnet_array <<< "$subnet"
 
     # Increment the last octet of the subnet address
-    subnet_array[3]='235'
+    subnet_array[3]='254'
     
     # Subnet address construction
     subnet="${subnet_array[0]}.${subnet_array[1]}.${subnet_array[2]}.${subnet_array[3]}"
@@ -31,7 +31,7 @@ ADD)
     # If it reach 255, there are no more IP to allocate
     # TODO: IPAM SERVICE
     ip=$(echo $podcidr | sed "s:0/24:$(($n+1)):g")
-    if [ ${ip} -eq "235" ]; then
+    if [ ${ip} -eq "254" ]; then
         exit 1
     fi
     
@@ -116,11 +116,11 @@ CHECK)
 VERSION)
     echo '{
     "cniVersion": "1.0.0",
-    "suppoertedVersions": ["1.0.0"]
+    "supportedVersions": ["1.0.0"]
     }'
 ;;
 *)
-    echo "not supported"
+    echo "not supported" 1>&2
     exit 1
 ;;
 
